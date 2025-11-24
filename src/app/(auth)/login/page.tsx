@@ -31,7 +31,9 @@ export default function LoginPage() {
       password: values.password,
     });
     if (res?.error) {
-      setErrKey(res.error === "CredentialsSignin" ? "auth.errors.credentials_invalid" : "auth.errors.login_failed");
+      // 移除auth.前缀，因为useTranslations已经限定在auth命名空间
+      const errorKey = res.error === "CredentialsSignin" ? "errors.credentials_invalid" : "errors.login_failed";
+      setErrKey(errorKey);
       return;
     }
     router.push("/dashboard");

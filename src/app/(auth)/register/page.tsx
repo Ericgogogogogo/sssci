@@ -45,10 +45,12 @@ export default function RegisterPage() {
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) {
-      setErrKey(data?.error ?? "auth.errors.register_failed");
+      // 移除auth.前缀，因为useTranslations已经限定在auth命名空间
+      const errorKey = data?.error?.replace(/^auth\./, '') || "errors.register_failed";
+      setErrKey(errorKey);
       return;
     }
-    setOkKey("auth.messages.register_success");
+    setOkKey("messages.register_success");
     setTimeout(() => router.push("/login"), 800);
   };
 

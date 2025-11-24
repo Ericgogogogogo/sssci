@@ -28,6 +28,11 @@
       "credentials_invalid": "Invalid email or password",
       "rate_limited": "Too many requests, please try again later"
     },
+    "auth": {
+      "errors": {
+        "server_error": "Server error"
+      }
+    },
     "messages": {
       "register_success": "Registration successful, redirecting to login"
     },
