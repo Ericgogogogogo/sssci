@@ -36,6 +36,7 @@ export async function POST(req: Request) {
     });
     return NextResponse.json({ ok: true, message: "auth.messages.register_success" }, { status: 201 });
   } catch (e) {
-    return NextResponse.json({ error: "auth.errors.server_error" }, { status: 500 });
+    console.error("Registration error:", e);
+    return NextResponse.json({ error: "auth.errors.server_error", details: e instanceof Error ? e.message : "Unknown error" }, { status: 500 });
   }
 }

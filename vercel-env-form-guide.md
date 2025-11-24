@@ -4,14 +4,26 @@
 
 ### 第一个变量：DATABASE_URL
 
+**⚠️ 重要：使用 PostgreSQL 连接字符串，而不是 SQLite 文件路径**
+
 **填写内容：**
 - **Name/Key:** `DATABASE_URL`
-- **Value:** `file:./dev.db`
+- **Value:** `postgresql://username:password@host:port/database?sslmode=require`
 - **Environments:** 勾选所有三个 ✅ Production ✅ Preview ✅ Development
+
+**如何获取 PostgreSQL 连接字符串：**
+1. 登录你的数据库提供商（如 Supabase, Neon, Railway 等）
+2. 找到连接信息或直接复制连接字符串
+3. 确保格式为：`postgresql://username:password@host:port/database`
+
+**示例连接字符串：**
+- Supabase: `postgresql://postgres.username:password@db.xxxxxxxxxx.supabase.co:5432/postgres`
+- Neon: `postgresql://username:password@ep-xxxxx-xxxxx.us-east-1.aws.neon.tech:5432/dbname`
+- Railway: `postgresql://username:password@containers-us-west-1.railway.app:5432/railway`
 
 **操作步骤：**
 1. 在 "Name" 或 "Key" 输入框中输入：`DATABASE_URL`
-2. 在 "Value" 输入框中输入：`file:./dev.db`
+2. 在 "Value" 输入框中粘贴你的 PostgreSQL 连接字符串
 3. 确保所有环境（Production, Preview, Development）都被勾选
 4. 点击 "Save" 或 "Add" 按钮
 
