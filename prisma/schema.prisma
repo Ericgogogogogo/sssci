@@ -1,0 +1,181 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  FREE
+  PRO
+  TEAM
+  ADMIN
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  CANCELED
+  PAST_DUE
+}
+
+enum ProjectStatus {
+  IN_PROGRESS
+  COMPLETED
+  ARCHIVED
+}
+
+model User {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  name          String?
+  passwordHash  String
+  emailVerified DateTime?
+  image         String?
+  role          Role      @default(FREE)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  subscription Subscription?
+  usageLimit   UsageLimit?
+  projects     Project[]
+}
+
+model Subscription {
+  id                   String             @id @default(uuid())
+  userId               String             @unique
+  planType             Role
+  status               SubscriptionStatus @default(ACTIVE)
+  currentPeriodStart   DateTime
+  currentPeriodEnd     DateTime
+  stripeSubscriptionId String?
+  stripeCustomerId     String?
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model UsageLimit {
+  id                       String   @id @default(uuid())
+  userId                   String   @unique
+  topicGenerationsUsed     Int      @default(0)
+  frameworkGenerationsUsed Int      @default(0)
+  reviewSectionsUsed       Int      @default(0)
+  resetDate                DateTime
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Project {
+  id            String        @id @default(uuid())
+  userId        String
+  title         String
+  field         String?
+  status        ProjectStatus @default(IN_PROGRESS)
+  currentModule Int
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  user                 User                  @relation(fields: [userId], references: [id])
+  topicGenerations     TopicGeneration[]
+  frameworkGenerations FrameworkGeneration[]
+  reviews              LiteratureReview[]
+  designs              ResearchDesign[]
+
+  @@index([userId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model TopicGeneration {
+  id              String   @id @default(uuid())
+  projectId       String
+  iteration       Int
+  userInput       Json
+  generatedTopics Json
+  selectedTopicId String?
+  createdAt       DateTime @default(now())
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+  @@index([createdAt])
+}
+
+model ApiCallLog {
+  id         String   @id @default(uuid())
+  route      String
+  status     Int
+  durationMs Int
+  error      String?
+  createdAt  DateTime @default(now())
+
+  apiProvider  String?
+  endpoint     String?
+  model        String?
+  inputTokens  Int?
+  outputTokens Int?
+  costUsd      Float?
+  latencyMs    Int?
+  success      Boolean? @default(true)
+  userId       String?
+  projectId    String?
+
+  @@index([userId])
+  @@index([projectId])
+  @@index([createdAt])
+  @@index([route])
+}
+
+model FrameworkGeneration {
+  id                  String   @id @default(uuid())
+  projectId           String
+  iteration           Int
+  selectedTopic       Json
+  userDescription     String
+  hotResearch         Json
+  generatedFrameworks Json
+  selectedFrameworkId String?
+  createdAt           DateTime @default(now())
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+  @@index([createdAt])
+}
+
+model LiteratureReview {
+  id         String   @id @default(uuid())
+  projectId  String
+  settings   Json
+  outline    Json
+  sections   Json
+  references Json
+  finalHtml  String?
+  status     String   @default("PLANNING")
+  createdAt  DateTime @default(now())
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+  @@index([createdAt])
+  @@index([status])
+}
+
+model ResearchDesign {
+  id                   String   @id @default(uuid())
+  projectId            String
+  methodType           String
+  userDescription      String
+  designContent        Json
+  hypothesesValidation Json
+  materials            Json
+  actionPlan           Json
+  status               String   @default("DRAFT")
+  createdAt            DateTime @default(now())
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+  @@index([createdAt])
+  @@index([status])
+}

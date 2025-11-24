@@ -1,0 +1,59 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+__tests__/
+test-results/
+*.test.ts
+*.test.tsx
+*.test.js
+*.test.jsx
+
+# Environment
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Database
+*.sqlite
+*.db
+
+# Temporary files
+tmp/
+temp/
+
+# Build outputs (these should be built on Vercel)
+dist/
+build/
+
+# Documentation
+docs/
+README.md
+*.md
+
+# Docker
+docker-compose.*.yml
+Dockerfile
+docker-*.sh
+
+# Scripts
+test-api.sh

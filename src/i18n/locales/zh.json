@@ -1,0 +1,174 @@
+{
+  "auth": {
+    "login": "登录",
+    "register": "注册",
+    "email": "邮箱",
+    "password": "密码",
+    "confirmPassword": "确认密码",
+    "remember": "记住我",
+    "google": "使用 Google 登录",
+    "noAccount": "还没有账号？注册",
+    "hasAccount": "已有账号？登录",
+    "name": "姓名",
+    "agree": "我同意服务条款与隐私政策",
+    "errors": {
+      "email_invalid": "请输入有效邮箱",
+      "password_min": "密码至少 8 位",
+      "password_upper": "需包含大写字母",
+      "password_lower": "需包含小写字母",
+      "password_digit": "需包含数字",
+      "password_mismatch": "两次密码不一致",
+      "name_required": "请输入姓名",
+      "agree_required": "需同意条款",
+      "invalid_params": "参数不合法",
+      "email_in_use": "邮箱已被注册",
+      "server_error": "服务器错误",
+      "login_failed": "登录失败，请重试",
+      "register_failed": "注册失败，请重试",
+      "credentials_invalid": "邮箱或密码错误",
+      "rate_limited": "请求过于频繁，请稍后再试"
+    },
+    "messages": {
+      "register_success": "注册成功，即将跳转登录"
+    },
+    "loading": {
+      "login": "登录中...",
+      "register": "注册中..."
+    }
+  },
+  "dashboard": {
+    "title": "仪表盘",
+    "welcome": "欢迎回来"
+  },
+  "projects": {
+    "title": "项目",
+    "description": "这里将展示用户的项目列表。",
+    "create": "创建新项目",
+    "title_placeholder": "输入项目标题",
+    "create_btn": "创建",
+    "list": "我的项目",
+    "status": "状态",
+    "status_in_progress": "进行中",
+    "status_completed": "已完成",
+    "status_archived": "已归档",
+    "module": "模块",
+    "empty": "暂无项目",
+    "edit": "编辑",
+    "archive": "归档",
+    "save": "保存",
+    "cancel": "取消",
+    "delete": "删除",
+    "paper_entry": "论文生成",
+    "errors": {
+      "not_logged_in": "请先登录",
+      "user_not_found": "用户不存在",
+      "title_required": "请输入项目标题",
+      "missing_id": "缺少项目标识",
+      "project_not_found": "未找到项目",
+      "module_invalid": "模块索引无效",
+      "status_invalid": "状态无效",
+      "limit_reached": "已达到项目数量上限",
+      "server_error": "服务器错误"
+    },
+    "messages": {
+      "created": "项目已创建",
+      "updated": "项目已更新",
+      "title_updated": "标题已更新",
+      "archived": "项目已归档",
+      "deleted": "项目已删除"
+    },
+    "confirm_delete_title": "删除项目",
+    "confirm_delete_message": "此操作不可撤销，确定删除该项目吗？",
+    "confirm_delete_ok": "删除"
+  },
+  "topic": {
+    "title": "选题生成",
+    "form": {
+      "title": "研究选题输入",
+      "keywords_placeholder": "输入关键词后回车添加",
+      "description_placeholder": "请输入200-500字研究描述",
+      "generate_btn": "生成选题",
+      "generating": "生成中..."
+    },
+    "errors": { "generate_failed": "生成失败，请重试" },
+    "show_description": "展开描述",
+    "pros": "优点",
+    "cons": "不足",
+    "overall_score": "综合评分",
+    "select": "选择此选题",
+    "selected": "已选择",
+    "next_step": "进入下一步"
+  },
+  "framework": {
+    "title": "理论框架",
+    "selected_topic": "选定的研究选题",
+    "user_desc": "用户描述",
+    "desc_placeholder": "添加对框架的要求",
+    "generate_btn": "生成框架",
+    "generating": "生成中...",
+    "tab": "框架",
+    "select": "选择此框架",
+    "selected": "已选择",
+    "hypotheses": "研究假设",
+    "pros_cons": "优缺点",
+    "next": "进入下一步",
+    "generate_failed": "生成失败，请重试"
+  },
+  "settings": {
+    "title": "账户设置",
+    "currentPlan": "当前订阅",
+    "status": "状态",
+    "upgradePro": "升级到 PRO",
+    "upgradeTeam": "升级到 TEAM",
+    "usageStats": "使用统计",
+    "topicRemaining": "选题生成剩余",
+    "frameworkUsed": "框架生成",
+    "reviewUsed": "评审生成",
+    "unlimited": "无限"
+  }
+  ,
+  "stripe": {
+    "errors": {
+      "not_logged_in": "请先登录",
+      "unsupported_plan": "不支持的订阅计划",
+      "missing_price": "未配置价格 ID",
+      "user_not_found": "用户不存在",
+      "server_error": "服务器错误",
+      "not_configured": "未配置 Stripe",
+      "signature_invalid": "Webhook 签名无效",
+      "subscription_not_found": "未找到订阅",
+      "rate_limited": "请求过于频繁，请稍后再试"
+    },
+    "messages": {
+      "canceled": "订阅已取消"
+    }
+  },
+  "usage": {
+    "errors": {
+      "not_logged_in": "请先登录",
+      "missing_param": "缺少参数",
+      "missing_user": "缺少用户标识",
+      "rate_limited": "请求过于频繁，请稍后再试"
+    },
+    "messages": {
+      "limit_remaining": "功能使用剩余",
+      "upgrade_cta": "升级到 PRO 以获得无限使用次数",
+      "upgrade_go": "去升级"
+    }
+  }
+  ,
+  "paper": {
+    "setup_title": "论文生成设置",
+    "upload_results": "上传研究结果（PNG/PDF）",
+    "start_generate": "开始生成",
+    "generate_title": "论文生成",
+    "preview": "内容预览",
+    "export_html": "导出 HTML",
+    "export_word": "导出 Word",
+    "journals_title": "期刊推荐",
+    "journals_loading": "正在生成推荐...",
+    "stage_assembling": "整合内容中...",
+    "stage_writing": "AI撰写中...",
+    "errors": { "server_error": "服务器错误" }
+  }
+}

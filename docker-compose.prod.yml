@@ -1,0 +1,58 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+    env_file:
+      - .env.production
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    command: sh -c "DATABASE_URL=$(cat /run/secrets/database_url) NEXTAUTH_SECRET=$(cat /run/secrets/nextauth_secret) OPENAI_API_KEY=$(cat /run/secrets/openai_api_key) npm run start"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: sssci
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  redis:
+    image: redis:7-alpine
+    volumes:
+      - redisdata:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+secrets:
+  database_url:
+    file: ./secrets/DATABASE_URL
+  openai_api_key:
+    file: ./secrets/OPENAI_API_KEY
+  nextauth_secret:
+    file: ./secrets/NEXTAUTH_SECRET
+volumes:
+  pgdata:
+  redisdata:
+    secrets:
+      - database_url
+      - openai_api_key
+      - nextauth_secret

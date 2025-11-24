@@ -1,0 +1,174 @@
+{
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "remember": "Remember me",
+    "google": "Sign in with Google",
+    "noAccount": "No account? Register",
+    "hasAccount": "Have an account? Login",
+    "name": "Name",
+    "agree": "I agree to the Terms and Privacy Policy",
+    "errors": {
+      "email_invalid": "Please enter a valid email",
+      "password_min": "Password must be at least 8 characters",
+      "password_upper": "Requires an uppercase letter",
+      "password_lower": "Requires a lowercase letter",
+      "password_digit": "Requires a digit",
+      "password_mismatch": "Passwords do not match",
+      "name_required": "Please enter your name",
+      "agree_required": "You must agree to the terms",
+      "invalid_params": "Invalid parameters",
+      "email_in_use": "Email already registered",
+      "server_error": "Server error",
+      "login_failed": "Login failed, please try again",
+      "register_failed": "Registration failed, please try again",
+      "credentials_invalid": "Invalid email or password",
+      "rate_limited": "Too many requests, please try again later"
+    },
+    "messages": {
+      "register_success": "Registration successful, redirecting to login"
+    },
+    "loading": {
+      "login": "Logging in...",
+      "register": "Registering..."
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome back"
+  },
+  "projects": {
+    "title": "Projects",
+    "description": "Your project list will appear here.",
+    "create": "Create New Project",
+    "title_placeholder": "Enter project title",
+    "create_btn": "Create",
+    "list": "My Projects",
+    "status": "Status",
+    "status_in_progress": "In Progress",
+    "status_completed": "Completed",
+    "status_archived": "Archived",
+    "module": "Module",
+    "empty": "No projects yet",
+    "edit": "Edit",
+    "archive": "Archive",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "paper_entry": "Generate Paper",
+    "errors": {
+      "not_logged_in": "Please sign in",
+      "user_not_found": "User not found",
+      "title_required": "Please enter a project title",
+      "missing_id": "Missing project identifier",
+      "project_not_found": "Project not found",
+      "module_invalid": "Invalid module index",
+      "status_invalid": "Invalid status",
+      "limit_reached": "Project limit reached",
+      "server_error": "Server error"
+    },
+    "messages": {
+      "created": "Project created",
+      "updated": "Project updated",
+      "title_updated": "Title updated",
+      "archived": "Project archived",
+      "deleted": "Project deleted"
+    },
+    "confirm_delete_title": "Delete Project",
+    "confirm_delete_message": "This action cannot be undone. Delete this project?",
+    "confirm_delete_ok": "Delete"
+  },
+  "topic": {
+    "title": "Topic Generation",
+    "form": {
+      "title": "Input",
+      "keywords_placeholder": "Type keyword and press Enter",
+      "description_placeholder": "Enter 200-500 words description",
+      "generate_btn": "Generate Topics",
+      "generating": "Generating..."
+    },
+    "errors": { "generate_failed": "Generation failed, please try again" },
+    "show_description": "Show description",
+    "pros": "Pros",
+    "cons": "Cons",
+    "overall_score": "Overall Score",
+    "select": "Select this topic",
+    "selected": "Selected",
+    "next_step": "Next Step"
+  },
+  "framework": {
+    "title": "Frameworks",
+    "selected_topic": "Selected Topic",
+    "user_desc": "User Description",
+    "desc_placeholder": "Add requirements for frameworks",
+    "generate_btn": "Generate Frameworks",
+    "generating": "Generating...",
+    "tab": "Framework",
+    "select": "Select this framework",
+    "selected": "Selected",
+    "hypotheses": "Hypotheses",
+    "pros_cons": "Pros & Cons",
+    "next": "Next",
+    "generate_failed": "Generation failed, please try again"
+  },
+  "settings": {
+    "title": "Account Settings",
+    "currentPlan": "Current Plan",
+    "status": "Status",
+    "upgradePro": "Upgrade to PRO",
+    "upgradeTeam": "Upgrade to TEAM",
+    "usageStats": "Usage Stats",
+    "topicRemaining": "Topic generation remaining",
+    "frameworkUsed": "Framework generations",
+    "reviewUsed": "Review generations",
+    "unlimited": "Unlimited"
+  }
+  ,
+  "stripe": {
+    "errors": {
+      "not_logged_in": "Please sign in",
+      "unsupported_plan": "Unsupported plan",
+      "missing_price": "Missing price configuration",
+      "user_not_found": "User not found",
+      "server_error": "Server error",
+      "not_configured": "Stripe not configured",
+      "signature_invalid": "Invalid webhook signature",
+      "subscription_not_found": "Subscription not found",
+      "rate_limited": "Too many requests, please try again later"
+    },
+    "messages": {
+      "canceled": "Subscription canceled"
+    }
+  },
+  "usage": {
+    "errors": {
+      "not_logged_in": "Please sign in",
+      "missing_param": "Missing parameter",
+      "missing_user": "Missing user identifier",
+      "rate_limited": "Too many requests, please try again later"
+    },
+    "messages": {
+      "limit_remaining": "Remaining usage",
+      "upgrade_cta": "Upgrade to PRO for unlimited usage",
+      "upgrade_go": "Upgrade"
+    }
+  }
+  ,
+  "paper": {
+    "setup_title": "Paper Setup",
+    "upload_results": "Upload results (PNG/PDF)",
+    "start_generate": "Start Generate",
+    "generate_title": "Paper Generation",
+    "preview": "Preview",
+    "export_html": "Export HTML",
+    "export_word": "Export Word",
+    "journals_title": "Journal Recommendations",
+    "journals_loading": "Generating recommendations...",
+    "stage_assembling": "Assembling content...",
+    "stage_writing": "Writing with AI...",
+    "errors": { "server_error": "Server error" }
+  }
+}
